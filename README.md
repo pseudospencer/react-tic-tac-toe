@@ -1,4 +1,19 @@
-This project was built by following the [Intro to React Tutorial](https://reactjs.org/tutorial/tutorial.html).
+# About
+I built this project by following the [Intro to React Tutorial](https://reactjs.org/tutorial/tutorial.html).
+
+I expanded upon the main tutorial by completing some additional work:
+- My app displays the coordinates and the mark made during each move in the move history list to the right
+- My app displays the current move in bold in the move history list
+- If there is a draw, my app updates the game status
+- If there is a winner, my app displays the winning line in green and updates the game status
+
+Before starting this tutorial, I'd completed the React and Redux lessons on FreeCodeCamp. However, FreeCodeCamp does a lot of work behind the scenes to set up React and Redux so that you don't have to worry about setting up a local dev environment. So this is the first project I built using Create React App.
+
+In addition to helping me set up Create React App, this tutorial was a great learning experience for me because the app uses multi-level nested components and passes props all the way down from the top to bottom level. Figuring out how to do this was actually one of the tricker parts for me, especially when it came to displaying the winning line. I had originally tried to track the winner and winning line in the Game component's state by using setState in Game.handleClick, but then I realized that doing so blocked the "rewind" functionality. Instead, I ended up just passing down the winning line from Game.update to Board and Square through props, exposing this data where it was needed and solving the problems I was facing with the rewind.
+
+I obviously still have a lot to learn about React, but here's to one completed project on the books! 🍾
+
+## Setup Stuff
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
