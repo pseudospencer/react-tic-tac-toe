@@ -14,13 +14,17 @@ class Board extends React.Component {
     renderSquare(i, line) {
         const wLine = this.props.winningLine != null ?
             this.props.winningLine.includes(i) ?
-                {color: " #4ef442"} :
+                {backgroundColor: "#FFFFC9"} :
                 {} : {};
+        const markColor = this.props.squares[i] != null ?
+            this.props.squares[i] == "X" ?
+                {color: "#2DF8F5"} :
+                {color: "#FB98FE"} : {color: "pink"};
         return (
             <Square
                 value={this.props.squares[i]}
                 onClick={() => this.props.onClick(i)}
-                style={wLine}
+                style={{...wLine, ...markColor}}
             />
         );
     }
@@ -114,11 +118,12 @@ class Game extends React.Component {
                 " - " + history[move].movesMade :
                 "";
             const boldStep = move == this.state.stepNumber ?
-                {fontWeight: "bold"} :
+                {border: "3px solid #6DFECA", backgroundColor: "#C5FFEA"}:
                 {};
             return (
                 <li key={move}>
                     <button
+                        className="history-button"
                         onClick={() => this.jumpTo(move)}
                         style={boldStep}
                     >
@@ -146,8 +151,8 @@ class Game extends React.Component {
                 />
             </div>
             <div className="game-info">
-                <div>{status}</div>
-                <ol>{moves}</ol>
+                <div className="status">{status}</div>
+                <ol className="move-history">{moves}</ol>
             </div>
         </div>);
     }
