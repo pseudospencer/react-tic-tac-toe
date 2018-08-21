@@ -64,6 +64,12 @@ li {
 .game {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
 }
 
 .game-info {
