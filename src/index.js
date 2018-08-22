@@ -17,7 +17,7 @@ class Board extends React.Component {
                 {backgroundColor: "#FFFFC9"} :
                 {} : {};
         const markColor = this.props.squares[i] != null ?
-            this.props.squares[i] == "X" ?
+            this.props.squares[i] === "X" ?
                 {color: "#2DF8F5"} :
                 {color: "#FB98FE"} : {color: "pink"};
         return (
@@ -117,7 +117,7 @@ class Game extends React.Component {
             const coordString = history[move].movesMade != null ?
                 " - " + history[move].movesMade :
                 "";
-            const boldStep = move == this.state.stepNumber ?
+            const boldStep = move === this.state.stepNumber ?
                 {border: "3px solid #6DFECA", backgroundColor: "#C5FFEA"}:
                 {};
             return (
@@ -143,7 +143,7 @@ class Game extends React.Component {
         }
 
         return (
-            <div>
+            <div style={ { backgroundImage: `url(require("img/memphisXO.jpg"))` } }>
                 <div className="header">
                     <h1>Tic Tac Toe</h1>
                     <h3>You know the game. Click one of the cells to start!</h3>
