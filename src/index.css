@@ -1,8 +1,8 @@
 body {
-    /* background-image: url("/img/memphisXO.jpg"); */
+    margin: 20px;
+    background-image: url(/img/memphisXO.jpg);
     background-repeat: repeat;
     font: 18px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
 }
 
 ol, ul {
@@ -14,17 +14,43 @@ li {
     margin-left: -40px;
 }
 
-.move-history {
-    margin-top: -15px;
-    margin-bottom: -10px;
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
 
-.history-button {
-    height: 35px;
-    width: 200px;
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.main {
+    margin: auto;
+    width: max-content;
+}
+
+.header {
+    width: 100%;
+    align-items: center;
+    margin: 20px 40px 20px 40px;
+    padding: 20px;
+    background: #fff;
     border: 3px solid #000;
-    margin-top: 10px;
-    font-size: 16px;
+    box-shadow: 10px 10px #C5FFEA;
+}
+
+.game {
+    justify-content: center;
+    margin: 20px;
+}
+
+.board-container {
+    margin: 20px;
+    box-shadow: 13px 10px #C5FFEA;
+}
+
+.board-row {
+    width: 100%
 }
 
 .board-row:after {
@@ -33,26 +59,19 @@ li {
     display: table;
 }
 
-.status {
-    font-size: 24px;
-    text-align: center;
-    margin-top: -3px;
-    padding-bottom: 10px;
-}
-
 .square {
-    background: #fff;
-    border: 3px solid #000;
     float: left;
-    font-size: 120px;
-    font-weight: bold;
-    line-height: 34px;
     height: 180px;
+    width: 180px;
     margin-right: -3px;
     margin-top: -3px;
     padding: 0;
-    text-align: center;
-    width: 180px;
+    background: #fff;
+    border: 3px solid #000;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+    font-weight: bold;
 }
 
 .square:focus {
@@ -63,37 +82,60 @@ li {
     background: #ddd;
 }
 
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: max-content;
-    margin: auto;
-    padding: 20px;
-    background: #fff;
-    border: 3px solid #000;
-    box-shadow: 10px 10px #C5FFEA;
-}
-
-.game {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 20px;
-    /* background-color: #C5FFEA; */
-}
-
-.game-board {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    box-shadow: 13px 10px #C5FFEA;
-}
-
 .game-info {
-    background: #fff;
     margin: 17px 20px 20px 20px;
-    border: 3px solid #000;
     padding: 30px;
+    background: #fff;
+    border: 3px solid #000;
     box-shadow: 10px 10px #C5FFEA;
+}
+
+.status {
+    margin-top: -3px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.move-history {
+    margin-top: -15px;
+    margin-bottom: -10px;
+}
+
+.history-button {
+    height: 35px;
+    width: 200px;
+    margin-top: 10px;
+    border: 3px solid #000;
+    font-size: 16px;
+}
+
+.history-button:focus {
+    outline: none;
+}
+
+@media (max-width: 971px) {
+    .square {
+        height: 106px;
+        width: 106px;
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 720px) {
+    .main {
+        width: auto;
+    }
+    .header-row {
+        margin: auto;
+        max-width: 400px;
+        min-width: 349px;
+    }
+    .game {
+        flex-direction: column;
+        align-items: center;
+    }
+    .game-info {
+        width: auto;
+    }
 }

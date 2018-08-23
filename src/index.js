@@ -2,11 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+// UI colors
+const lightBlue = "#ABFCFB";
+const lightPink = "#FDD6FF";
+const lightYellow = "#FFFFC9";
+const lightGreen = "#C5FFEA";
+const fullBlue = "#2DF8F5";
+const fullPink = "#FB98FE";
+const fullYellow = "#FFFF78";
+const fullGreen = "#6DFECA";
+
 function Square(props) {
     return (
-        <button className="square" onClick={props.onClick} style={props.style}>
+        <button className="square flex-column" onClick={props.onClick} style={props.style}>
             {props.value}
         </button>
+    );
+}
+
+function Header() {
+    return (
+        <div className="header flex-column">
+            <h1>Tic Tac Toe</h1>
+            <h3>You know the game. Click one of the cells to start!</h3>
+        </div>
     );
 }
 
@@ -14,12 +33,12 @@ class Board extends React.Component {
     renderSquare(i, line) {
         const wLine = this.props.winningLine != null ?
             this.props.winningLine.includes(i) ?
-                {backgroundColor: "#FFFFC9"} :
+                {backgroundColor: lightYellow} :
                 {} : {};
         const markColor = this.props.squares[i] != null ?
             this.props.squares[i] === "X" ?
-                {color: "#2DF8F5"} :
-                {color: "#FB98FE"} : {color: "pink"};
+                {color: fullBlue} :
+                {color: fullPink} : {};
         return (
             <Square
                 value={this.props.squares[i]}
@@ -35,13 +54,13 @@ class Board extends React.Component {
             for (let c = 0; c < 3; c++) {
                 squares.push(this.renderSquare(3*r + c));
             }
-            rows.push(<div className="board-row">{squares}</div>);
+            rows.push(<div className="board-row flex-row">{squares}</div>);
         }
         return rows;
     }
     render() {
         return (
-            <div>
+            <div className="board-container">
                 {this.createSquares()}
             </div>
         );
@@ -118,7 +137,7 @@ class Game extends React.Component {
                 " - " + history[move].movesMade :
                 "";
             const boldStep = move === this.state.stepNumber ?
-                {border: "3px solid #6DFECA", backgroundColor: "#C5FFEA"}:
+                {border: "3px solid " + fullGreen , backgroundColor: lightGreen}:
                 {};
             return (
                 <li key={move}>
@@ -143,20 +162,19 @@ class Game extends React.Component {
         }
 
         return (
-            <div style={ { backgroundImage: `url(require("img/memphisXO.jpg"))` } }>
-                <div className="header">
-                    <h1>Tic Tac Toe</h1>
-                    <h3>You know the game. Click one of the cells to start!</h3>
+            <div className="main flex-column">
+                <div className="header-row flex-row">
+                    <Header />
                 </div>
-                <div className="game">
-                    <div className="game-board">
+                <div className="game flex-row">
+                    <div className="game-board flex-column">
                         <Board
                             squares={current.squares}
                             winningLine={winningLine}
                             onClick={(i) => this.handleClick(i)}
                         />
                     </div>
-                    <div className="game-info">
+                    <div className="game-info flex-column">
                         <div className="status">{status}</div>
                         <ol className="move-history">{moves}</ol>
                     </div>
