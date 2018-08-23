@@ -2,8 +2,11 @@
 I built this project by following the [Intro to React Tutorial](https://reactjs.org/tutorial/tutorial.html).
 
 I expanded upon the main tutorial by completing some additional work:
-- My app displays the coordinates and the mark made during each move in the move history list to the right
-- My app displays the current move in bold in the move history list
+- Added custom styling and responsive layout through css
+- Added a background image (this one was a bit tricky!)
+- Marks made during each move are color-coded
+- Built out a feature to display coordinates and the mark made during each move in the move history list to the right
+- Built out a feature to highlight the current move in bold in the move history list
 - If there is a draw, my app updates the game status
 - If there is a winner, my app displays the winning line in green and updates the game status
 
